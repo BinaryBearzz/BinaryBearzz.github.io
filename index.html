@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BinaryBearzz — Portfolio</title>
+    <meta name="description" content="Portfolio of BinaryBearzz — showcasing projects, skills and contact info." />
+    <meta property="og:title" content="BinaryBearzz — Portfolio" />
+    <meta property="og:description"
+        content="Portfolio of BinaryBearzz — showcasing projects, skills and contact info." />
+    <meta name="theme-color" content="#030214" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-dark: #030214;
+            --bg-mid: #071428;
+            --card: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.06);
+            --muted: #9aa7bf;
+            --accent-1: #6EE7B7;
+            --accent-2: #7C6CFF;
+            --neon: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            --radius: 16px;
+            --maxw: 1100px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            padding: 36px 20px;
+            font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+            color: #eaf2ff;
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 108, 255, 0.08), rgba(0, 0, 0, 0) 10%),
+                radial-gradient(1000px 500px at 90% 90%, rgba(110, 231, 183, 0.06), rgba(0, 0, 0, 0) 10%),
+                linear-gradient(180deg, var(--bg-dark), var(--bg-mid));
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            opacity: 0.12;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px, 40px 40px;
+            transform: translateZ(0);
+            animation: moveGrid 30s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            from {
+                background-position: 0 0, 0 0
+            }
+
+            to {
+                background-position: 400px 400px, -400px -400px
+            }
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #05131a;
+            font-family: Orbitron, monospace
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: 700
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 700
+        }
+
+        nav a.primary {
+            background: var(--neon);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 28px;
+            margin-top: 36px;
+            align-items: center
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .intro h2 {
+            font-family: Orbitron, monospace;
+            font-size: 28px;
+            margin: 0 0 8px;
+            letter-spacing: 0.6px
+        }
+
+        .intro p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0
+        }
+
+        .cta {
+            margin-top: 18px
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: var(--neon);
+            color: #021014;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(124, 108, 255, 0.12);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            font-weight: 700
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--accent-1);
+            font-family: Orbitron, monospace;
+            border: 1px solid rgba(124, 108, 255, 0.12)
+        }
+
+        .meta {
+            margin-top: 14px;
+            color: var(--muted)
+        }
+
+        section.projects {
+            margin-top: 36px
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .project {
+            padding: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.005));
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform .28s ease, box-shadow .28s ease
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(6, 10, 25, 0.6);
+        }
+
+        .project h3 {
+            margin: 0 0 8px;
+            font-size: 16px
+        }
+
+        .project p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .tags {
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.008));
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        footer {
+            margin-top: 46px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 80px;
+            border-radius: 6px;
+            margin-top: 12px;
+            background: var(--neon);
+            box-shadow: 0 6px 24px rgba(124, 108, 255, 0.12)
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .link {
+            color: var(--accent-1);
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        @media (max-width:1000px) {
+            .hero {
+                grid-template-columns: 1fr 300px
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width:680px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .profile {
+                flex-direction: row;
+                gap: 18px;
+                text-align: left
+            }
+
+            .avatar {
+                width: 96px;
+                height: 96px;
+                font-size: 32px
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr
+            }
+
+            body {
+                padding: 24px 12px
+            }
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.25);
+            font-family: monospace;
+            font-size: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        #profile-card {
+            perspective: 1000px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+
+            /* Neon rim shadows */
+            box-shadow:
+                0 0 10px rgba(110, 231, 183, 0.3),
+                0 0 20px rgba(124, 108, 255, 0.3),
+                0 0 30px rgba(110, 231, 183, 0.2),
+                0 0 50px rgba(124, 108, 255, 0.2),
+                inset 0 0 8px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Neon rim/glow animation */
+        #profile-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 5px;
+            background-size: 400% 400%;
+            z-index: -1;
+            filter: blur(8px);
+            animation: neonGlow 6s ease infinite;
+        }
+
+        @keyframes neonGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <!-- <div class="logo">BB</div> -->
+                <div class="logo">
+                    <img src="/image/favicon.ico" alt="BinaryBearzz"
+                        style="width:100%; height:100%; border-radius:inherit; object-fit:cover;">
+                </div>
+                <div>
+                    <h1>BinaryBearzz</h1>
+                    <div class="muted" style="font-size:13px">IoT R&D Developer • Maker • Backend</div>
+                </div>
+            </div>
+            <nav>
+                <!-- <a href="#projects">Projects</a> -->
+                <a href="#about">About</a>
+                <a href="#contact" class="primary">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="card intro">
+                    <h2>Hi — I'm <span style="color:var(--accent-1)">Worawit Sayned</span></h2>
+                    <p>Builder of tools, embedded devices, and web experiences. I care about clean code, efficient
+                        systems, and practical engineering. Below are some highlighted projects from my GitHub.</p>
+                    <div class="cta">
+                        <a class="btn" href="#contact">Contact</a>
+                        <!-- <a class="btn" href="#projects">See Projects</a> -->
+                        <!-- <a class="link" href="#contact" style="margin-left:12px">Contact</a> -->
+                    </div>
+
+                    <div style="margin-top:20px">
+                        <strong class="muted">Skills</strong>
+                        <div class="tags" style="margin-top:8px">
+                            <span class="tag">C / C++</span>
+                            <span class="tag">Go</span>
+                            <span class="tag">Nestjs, TS</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Maker</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">Arduino</span>
+                            <span class="tag">AIS NBIoT</span>
+                            <span class="tag">AIS 4G Board</span>
+                            <span class="tag">MQTT</span>
+                            <span class="tag">HTTP</span>
+                            <span class="tag">CoAP</span>
+                            <span class="tag">Nodered</span>
+                            <span class="tag">Embedded System</span>
+                            <span class="tag">3D, Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <aside class="card profile" id="profile-card">
+                    <div class="avatar">
+                        <img src="/image/favicon.ico" alt="BinaryBearzz"
+                            style="width:100%; height:100%; border-radius:inherit; object-fit:cover;">
+                    </div>
+                    <div style="margin-top:14px">
+                        <div style="font-weight:700">Worawit Sayned</div>
+                        <div class="meta">IoT R&D Developer | Backend</div>
+                        <div class="row" style="margin-top:14px">
+                            <a class="link" href="https://github.com/BinaryBearzz" target="_blank">GitHub</a>
+                            <a class="link" href="https://www.linkedin.com/in/worawit-sayned-653379236/" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <!-- <section id="projects" class="projects">
+        <h2 style="margin:0 0 12px">Highlighted Projects</h2>
+        <div class="projects-grid">
+          <article class="project">
+            <h3>ESP32 Web Flasher</h3>
+            <p>Web-based flasher hosted on GitHub Pages — select firmware builds and flash ESP32 devices via browser.</p>
+            <div class="tags">
+              <span class="tag">ESP32</span>
+              <span class="tag">WebUSB</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+            <div style="margin-top:12px"><a class="link" href="https://github.com/BinaryBearzz" target="_blank">View repo →</a></div>
+          </article>
+
+            <aside class="card profile">
+                <div class="avatar">BB</div> 
+            <div class="avatar">
+                <img src="/image/favicon.ico" alt="BinaryBearzz"
+                    style="width:100%; height:100%; border-radius:inherit; object-fit:cover;">
+            </div>
+            <div style="margin-top:14px">
+                <div style="font-weight:700">Worawit Sayned</div>
+                <div class="meta">IoT R&D Developer | Backend </div>
+                <div class="row" style="margin-top:14px">
+                    <a class="link" href="https://github.com/BinaryBearzz" target="_blank">GitHub</a>
+                    <a class="link" href="https://linkedin.com" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            </aside>
+
+            <article class="project">
+                <h3>BLE Pocket Amp Controller</h3>
+                <p>Wireless switch for Pocket Amp using BLE to toggle effects and presets, with mobile UI and firmware.
+                </p>
+                <div class="tags">
+                    <span class="tag">BLE</span>
+                    <span class="tag">ESP32</span>
+                </div>
+                <div style="margin-top:12px"><a class="link" href="https://github.com/BinaryBearzz" target="_blank">View
+                        repo →</a></div>
+            </article>
+
+            <article class="project">
+                <h3>MQTT Monitoring Tools</h3>
+                <p>Utilities and scripts to monitor RabbitMQ queues and display consumer metrics; includes JSON parsers.
+                </p>
+                <div class="tags">
+                    <span class="tag">RabbitMQ</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">Go</span>
+                </div>
+                <div style="margin-top:12px"><a class="link" href="https://github.com/BinaryBearzz" target="_blank">View
+                        repo →</a></div>
+            </article>
+    </div>
+    </section> -->
+    <!-- <section id="profile-card" style="margin-top:34px"> -->
+            <section id="contributions" style="margin-top:34px">
+                <div class="card">
+                    <h2>Contributions in the last year</h2>
+                    <img src="https://ghchart.rshah.org/BinaryBearzz" alt="GitHub contributions chart"
+                        style="width:100%; height:auto;">
+                </div>
+            </section>
+
+            <section id="about" style="margin-top:34px">
+                <div class="card">
+                    <h2 style="margin-top:0">About me</h2>
+                    <p class="muted">I design and build firmware, tools, and small web apps. I enjoy shipping features
+                        that make people's lives easier and contributing to open-source. When I'm not coding I tinker
+                        with electronics and document my projects on GitHub.</p>
+                </div>
+            </section>
+
+            <section id="contact" style="margin-top:34px">
+                <div class="card">
+                    <h2 style="margin-top:0">Contact</h2>
+                    <p class="muted">Want to work together or ask about a project? Reach me via GitHub or email <a
+                            class="link" href="mailto:binarybearzz@example.com">binarybearzz@example.com</a>.</p>
+                    <div style="margin-top:12px">
+                        <a class="btn" href="mailto:worawit.4work@gmail.com">Email me</a>
+                        <a class="link" href="https://github.com/BinaryBearzz" target="_blank"
+                            style="margin-left:12px">GitHub
+                            profile</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div>Built with ❤️ by BinaryBearzz</div>
+            <!-- <div style="margin-top:8px;font-size:13px">To publish: push this file as <strong>index.html</strong> to your
+                repo and enable GitHub Pages.</div> -->
+        </footer>
+    </div>
+</body>
+
+<script>
+    const card = document.getElementById('profile-card');
+    const sensitivity = 20;
+
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * sensitivity;
+        const rotateY = ((x - centerX) / centerX) * sensitivity;
+
+        card.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+
+        // Slight dynamic shadow shift
+        card.style.boxShadow = `
+        ${-rotateY / 2}px ${rotateX / 2}px 15px rgba(110,231,183,0.3),
+        ${rotateY / 2}px ${-rotateX / 2}px 25px rgba(124,108,255,0.3),
+        0 0 30px rgba(110,231,183,0.2),
+        0 0 50px rgba(124,108,255,0.2),
+        inset 0 0 8px rgba(255,255,255,0.05)
+    `;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+        card.style.boxShadow = `
+        0 0 10px rgba(110,231,183,0.3),
+        0 0 20px rgba(124,108,255,0.3),
+        0 0 30px rgba(110,231,183,0.2),
+        0 0 50px rgba(124,108,255,0.2),
+        inset 0 0 8px rgba(255,255,255,0.05)
+    `;
+    });
+</script>
+
+<style>
+    #profile-card {
+        perspective: 1000px;
+        transition: transform 0.3s ease;
+    }
+</style>
+
+</html>
