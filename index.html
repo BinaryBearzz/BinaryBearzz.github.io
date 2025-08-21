@@ -355,6 +355,23 @@
                 inset 0 0 8px rgba(255, 255, 255, 0.05);
         }
 
+        #profile-card2 {
+            perspective: 1000px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+
+            /* Neon rim shadows */
+            box-shadow:
+                0 0 5px rgba(110, 231, 183, 0.3),
+                0 0 10px rgba(124, 108, 255, 0.3),
+                0 0 15px rgba(110, 231, 183, 0.2),
+                0 0 20px rgba(124, 108, 255, 0.2),
+                inset 0 0 8px rgba(255, 255, 255, 0.05);
+        }
+
         /* Neon rim/glow animation */
         #profile-card::before {
             content: '';
@@ -381,6 +398,11 @@
                 background-position: 0% 50%;
             }
         }
+
+        #profile-card {
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+        }
     </style>
 
 </head>
@@ -390,7 +412,7 @@
         <header>
             <div class="brand">
                 <!-- <div class="logo">BB</div> -->
-                <div class="logo">
+                <div class="logo" id="profile-card2">
                     <img src="/image/favicon.ico" alt="BinaryBearzz"
                         style="width:100%; height:100%; border-radius:inherit; object-fit:cover;">
                 </div>
@@ -451,7 +473,8 @@
                         <div class="meta">IoT R&D Developer | Backend</div>
                         <div class="row" style="margin-top:14px">
                             <a class="link" href="https://github.com/BinaryBearzz" target="_blank">GitHub</a>
-                            <a class="link" href="https://www.linkedin.com/in/worawit-sayned-653379236/" target="_blank">LinkedIn</a>
+                            <a class="link" href="https://www.linkedin.com/in/worawit-sayned-653379236/"
+                                target="_blank">LinkedIn</a>
                         </div>
                     </div>
                 </aside>
@@ -513,7 +536,7 @@
             </article>
     </div>
     </section> -->
-    <!-- <section id="profile-card" style="margin-top:34px"> -->
+            <!-- <section id="profile-card" style="margin-top:34px"> -->
             <section id="contributions" style="margin-top:34px">
                 <div class="card">
                     <h2>Contributions in the last year</h2>
@@ -591,12 +614,5 @@
     `;
     });
 </script>
-
-<style>
-    #profile-card {
-        perspective: 1000px;
-        transition: transform 0.3s ease;
-    }
-</style>
 
 </html>
